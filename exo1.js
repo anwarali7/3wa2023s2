@@ -8,4 +8,5 @@ function myMap(arr, func) {
 }
 
 // test
+console.log("Test exo1 :");
 console.log(myMap([0, 1, 7, 33], val => val * 3)); // [0, 3, 21, 99]

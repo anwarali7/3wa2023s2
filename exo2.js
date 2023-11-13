@@ -10,4 +10,5 @@ function myFilter(arr, func) {
 }
 
 // test
+console.log("Test exo2 :");
 console.log(myFilter([0, 2, 8, 33], val => val % 2 == 0)); // [0, 2, 8]
