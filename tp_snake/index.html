@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #333;
+    }
+
+    #terrain {
+      margin-top: 50px;
+      margin-left: 50px;
+      
+      /* border: 1px solid white; */
+      border-bottom: none;
+      border-left: none;
+      width: 400px;
+      height: 400px;
+
+      background-image: 
+        repeating-linear-gradient(0deg, white 0px, white 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, white 0px, white 1px, transparent 1px, transparent 20px);
+      
+      padding-left: 1px;
+      padding-top: 1px;
+
+      position: relative;
+    }
+
+    #snake {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+    }
+
+    .body {
+      background-color: green;
+      width: 19px;
+      height: 19px;
+      position: absolute;
+    }
+
+    .head {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Head orientataion default : East */
+    .head::after {
+      /* content: "►"; */
+      content: "👀";
+      width: 17px;
+      height: 17px;
+      display: block;
+    }
+
+    .head.ori-e {
+      transform: rotate(270deg);
+    }
+
+    .head.ori-s {
+      transform: rotate(00deg);
+    }
+
+    .head.ori-w {
+      transform: rotate(90deg);
+    }
+
+    .head.ori-n {
+      transform: rotate(180deg);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="terrain">
+    <div id="snake">
+      <div class="body head ori-e"></div>
+      <!-- autant de bouts de body que nécessaire -->
+    </div>
+    <div id="bonuses">
+      <div class="bonus"></div>
+      <div class="bonus"></div>
+    </div>
+  </div>
+
+
+  <script>
+    // Valeurs des orientations : n, e, s, w
+    let orientation = 'e';
+    const snake = document.querySelector('#snake');
+
+    [...snake.children][0].style.top = "180px";
+    [...snake.children][0].style.left = "180px";
+
+    function moveLeft() {
+      const children = [...snake.children];
+      // let lastTop = (top position of head)
+      // let lastLeft = (top position of head)
+      // use these two vars to move the head and every other body part
+      children.forEach((child, index) => {
+        console.log(index, child);
+      });
+
+      children[0].classList.remove('ori-e');
+      children[0].classList.add('ori-w');
+      children[0].style.left = parseInt(children[0].style.left) - 20 + 'px';
+    }
+    moveLeft();
+    moveLeft();
+
+    function moveRight() {
+      const children = [...snake.children];
+      children.forEach((child, index) => {
+        console.log(index, child);
+      });
+
+      children[0].classList.remove('ori-e');
+      children[0].classList.add('ori-w');
+      children[0].style.left = parseInt(children[0].style.left) + 20 + 'px';
+    }
+  </script>
+
+</body>
+
+</html>

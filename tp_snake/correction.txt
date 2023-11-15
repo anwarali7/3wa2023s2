@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <div id="terrain">
+      <div id="snake">
+        <div class="body block"></div>
+        <!-- autant de bouts de body que nécessaire -->
+      </div>
+      <div id="bonuses">
+        <div class="bonus"></div>
+        <div class="bonus"></div>
+      </div>
+    </div>
+
+    <script>
+      let snake = document.querySelector("#snake");
+      snake.style.top = "200px";
+      snake.style.left = "200px";
+      setTimeout(moveBottom, 1750);
+      setTimeout(moveBottom, 3500);
+
+      function incrementPosition(position) {
+        return parseInt(position) + 20 + "px";
+      }
+      function decrementPosition(position) {
+        return parseInt(position) - 20 + "px";
+      }
+
+      function moveLeft() {
+        snake.style.left = decrementPosition(snake.style.left);
+      }
+
+      function moveRight() {
+        snake.style.left = incrementPosition(snake.style.left);
+      }
+
+      function moveTop() {
+        snake.style.top = decrementPosition(snake.style.top);
+      }
+      function moveBottom() {
+        snake.style.top = incrementPosition(snake.style.top);
+      }
+    </script>
+  </body>
+</html>

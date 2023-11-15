@@ -1,0 +1,113 @@
+# TP : Snake
+
+Dans ce TP nous allons de fabriquer un clone du jeu snakes (comme sur Nokia 3310).
+
+Le but du jeu est d'attraper le plus de pommes possibles durant la partie.
+Le joueur guide le serpent en appuyant sur les fleches de direction.
+
+A chaque pomme attrapée, le serpent se rallonge et la vitesse du jeu accélère.
+Et une nouvelle pomme apparaît à une position aléatoire dans le terrain.
+
+Le joueur perd lorsqu'il touche les murs du terrain, ou que le serpent se mord la queue
+
+Au démarrage du jeu, le serpent apparaît au centre et se dirige vers le haut. Et il y a deux pommes sur le terrain.
+
+----
+
+## Étape 1
+
+Créer un fichier HTML avec au moins la structure suivante
+
+~~~
+<div id="terrain">
+    <div id="snake">
+      <div class="body"></div>
+        <div class="body"></div>
+       <div class="body"></div>
+       <!-- autant de bouts de body que nécessaire -->
+    </div>
+    <div id="bonuses">
+      <div class="bonus"></div>
+       <div class="bonus"></div>
+     </div>
+</div>
+~~~
+
+Ajouter le style CSS nécessaire pour ce qui suit :
+
+- le plateau de jeu fait 20x20 cases
+- chaque case fait 20 pixels de coté.
+- le elements du snake et les bonus rentrent entierement dans des cases
+
+
+## Etape 1 : Initialisation
+
+Positionner le snake dans la case (10, 10)
+
+## Étape 2 : Déplacements simples
+
+Coder les fonctions suivantes qui font avancer le serpent d'une seule case dans
+chaque direction, sans répétition :
+
+* moveLeft() { ... }
+* moveRight() { ... }
+* moveTop() { ... }
+* moveBottom() { ... }
+
+
+## Etape 3 : Gestion des touches
+
+- Gérer l'appui des touches dans la page, de telle sorte que lorsqu'on appuie
+  sur une touche fléchée, le snake se déplace dans la direction de la fleche
+
+
+## Etape 4 : Affichage des bonus
+
+- Gérer l'affichage des bonus : écrire une fonction `spawnBonus()` qui fait
+  apparaitre un bonus quelquepart sur la carte.
+
+
+## Etape 5 : Collision du snake avec les bordures
+
+- Gérer la collision avec les bordures du terrain
+- Lorsque le snake dépasse, la partie est perdue
+- On demande au joueur d'appuyer sur 'ESPACE' pour réinitialiser la partie
+
+
+## Etape 6 : Collisions snake - bonus
+
+- Gérer la collision du snake avec les différents bonus.
+- Faire disparaitre le bonus collisionné et en faire apparaitre un nouveau,
+  ailleurs sur la carte.
+- Compter un point par bonus mangé.
+- Afficher le score quelque part sur la page.
+
+
+## Etape 7 : Croissance du snake
+
+- Faire en sorte que pour chaque bonus mangé, le snake s'allonge : il obtient
+  ainsi un element .body supplémentaire dans #snake
+- Le déplacement du snake doit etre le suivant : 
+    - (HARD MODE) : la tête bouge, l'élément suivant est à la position précédente de la tête, et ainsi de suite.
+    - (EASY MODE) : le dernier élément de la queue passe à la place de la tête
+
+
+## Etape 8 : Collisions snake - snake
+
+- Empecher le joueur d'appuyer sur la direction opposée à l'orientation actuelle
+  du snake
+- Gérer la collision du snake avec sa propre queue.
+- Lorsque la tete du snake touche une partie de sa queue (un autre element
+  .body que la tête) alors la partie est perdue
+- On demande au joueur d'appuyer sur 'ESPACE' pour réinitialiser la partie
+
+## Etape 9 : Game loop
+
+- Faire en sorte que le snake avance tout seul dans la derniere direction
+  indiquée par le joueur
+- Faire en sorte que le snake parte vers le haut en début de partie
+
+
+## Etape 10 : Accélération du jeu
+
+- Faire en sorte que pour chaque bonus mangé, la vitesse du snake accélère :)
